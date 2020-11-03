@@ -5,6 +5,7 @@ class Store {
     @observable des = ''
     @observable img = ""
     @observable title = ''
+    @observable art = ''
 }
 
 export default new Store;
