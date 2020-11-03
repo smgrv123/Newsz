@@ -7,7 +7,6 @@ import { WebView } from 'react-native-webview'
 
 export default Headlines = (props) => {
     const [News, setNews] = useState([]);
-    // if (Store.url == '') {
     useEffect(() => {
         Axios.get('https://newsapi.org/v2/top-headlines?country='+Store.url+'&category=business&apiKey=2719918152a7463492d900316ee90bf1').then(res => {
             var temp = [];
@@ -17,18 +16,6 @@ export default Headlines = (props) => {
             setNews(temp);
         })
     }, [])
-    // } else {
-    // useEffect(() => {
-    //     Axios.get(Store.url).then(res => {
-    //         var temp = [];
-    //         res.data.articles.forEach(nwz => {
-    //             temp.push(nwz);
-    //         })
-    //         setNews(temp);
-    //     })
-    // }, [])
-    // }
-    // console.log(Store.url)
     return (
         <View>
             <TouchableOpacity
@@ -54,6 +41,7 @@ export default Headlines = (props) => {
                             Store.img=item.urlToImage
                             Store.des=item.description
                             Store.title=item.title
+                            Store.art=item.url
                         }}
                         style={{
                             flexDirection: 'row'
